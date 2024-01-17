@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { AppProps } from "next/app";
 import {
   ThirdwebProvider,
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       activeChain={activeChain}
     >
       <Analytics />
+      <SpeedInsights/>
       <Header />
       <Component {...pageProps} />
       <Navbar />
