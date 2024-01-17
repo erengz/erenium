@@ -34,9 +34,9 @@ const Home: NextPage = () => {
           <Web3Button
             contractAddress={NFT_CONTRACT_ADDRESS}
             action={(contract) => contract.erc1155.claim(0, 1)}
-            onSuccess={() => alert("NFT Claimed!")}
+            onSuccess={() => alert("NFT Purchased!")}
           >
-            Claim NFT
+            10 MATIC
           </Web3Button>
         </div>
       ) : (

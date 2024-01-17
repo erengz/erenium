@@ -9,7 +9,7 @@ export default function Navbar() {
         <div className={styles.navbar}>
             <Link href="/" className={styles.navIcon}>
                 <Image src={"/claim-icon.png"} alt="" width={46} height={46}/>
-                <p className={styles.navIconLabel}>Claim</p>
+                <p className={styles.navIconLabel}>Market</p>
             </Link>
             <Link href="/nfts" className={styles.navIcon}>
                 <Image src={"/nft-icon.png"} alt="" width={40} height={40}/>
