@@ -15,6 +15,10 @@ export default function Navbar() {
                 <Image src={"/nft-icon.png"} alt="" width={40} height={40}/>
                 <p className={styles.navIconLabel}>NFTs</p>
             </Link>
+            <Link href="" className={styles.navIcon}>
+                <Image src={"/stake.png"} alt="" width={40} height={40}/>
+                <p className={styles.navIconLabel}>Stake Beta</p>
+            </Link>
             <div className={styles.navIcon}>
             {address && (
                 <ConnectWallet
