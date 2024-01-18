@@ -2,9 +2,22 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { AppProps } from "next/app";
 import {
+  ConnectWallet,
   ThirdwebProvider,
+  bloctoWallet,
+  coinbaseWallet,
   embeddedWallet,
+  en,
+  frameWallet,
+  localWallet,
+  metamaskWallet,
+  phantomWallet,
+  rainbowWallet,
+  safeWallet,
   smartWallet,
+  trustWallet,
+  walletConnect,
+  zerionWallet,
 } from "@thirdweb-dev/react";
 import "../styles/globals.css";
 import Navbar from "../components/navbar";
@@ -17,13 +30,59 @@ const activeChain = "mumbai";
 
 
 
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThirdwebProvider
-      clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
-      activeChain={activeChain}
-    >
+    clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
+    activeChain={activeChain}
+    locale={en()}
+    supportedWallets={[
+      metamaskWallet(),
+      coinbaseWallet(),
+      walletConnect(),
+      safeWallet({
+        personalWallets: [
+          metamaskWallet(),
+          coinbaseWallet(),
+          walletConnect(),
+          localWallet(),
+          embeddedWallet({
+            auth: {
+              options: [
+                "email",
+                "google",
+                "apple",
+                "facebook",
+              ],
+            },
+          }),
+          trustWallet(),
+          zerionWallet(),
+          bloctoWallet(),
+          frameWallet(),
+          rainbowWallet(),
+          phantomWallet(),
+        ],
+      }),
+      localWallet(),
+      embeddedWallet({
+        auth: {
+          options: [
+            "email",
+            "google",
+            "apple",
+            "facebook",
+          ],
+        },
+      }),
+      trustWallet(),
+      zerionWallet(),
+      bloctoWallet(),
+      frameWallet(),
+      rainbowWallet(),
+      phantomWallet(),
+    ]}
+  >
       <Analytics />
       <SpeedInsights/>
       <Header />
